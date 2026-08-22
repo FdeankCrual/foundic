@@ -58,7 +58,7 @@
         <div class="hero-bg-pattern"></div>
         <div class="waitlist-hero-content">
             <h1 class="waitlist-hero-title">Foundic Network <span class="text-teal">– Early Access</span></h1>
-            <p class="waitlist-hero-sub">Foundic Network helps EdTech, Healthcare, HealthTech and Pharma companies solve
+            <p class="waitlist-hero-sub">Foundic Network helps EdTech, Healthcare, HealthTech, Pharma and a wide range of other industries solve
                 Sales, Revenue Growth and Team Training challenges through verified experts and execution.</p>
         </div>
     </section>
@@ -106,20 +106,40 @@
             <div class="waitlist-grid">
 
                 <aside class="waitlist-info">
-                    <div class="info-card info-card-dark">
+                    <div class="info-card info-card-dark" data-why="company">
                         <h3 class="info-title">Why join Early Access?</h3>
                         <ul class="info-list">
-                            <li>Priority access to verified Foundic experts</li>
-                            <li>Tailored execution plans for your stage</li>
-                            <li>Hands-on support across Sales, Revenue &amp; Team Training</li>
-                            <li>Be first to experience the Foundic platform</li>
+                            <li>Access verified experts in Sales, Revenue Growth &amp; Team Training</li>
+                            <li>Get a tailored execution plan built for your company's stage</li>
+                            <li>Solve your biggest business challenges with hands-on support</li>
+                            <li>Be among the first to leverage the Foundic platform</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card info-card-dark" data-why="expert" style="display:none;">
+                        <h3 class="info-title">Why join Early Access?</h3>
+                        <ul class="info-list">
+                            <li>Connect with high-potential companies actively seeking execution support</li>
+                            <li>Showcase your expertise to a curated network of founders</li>
+                            <li>Get matched with opportunities that fit your skills and availability</li>
+                            <li>Build your reputation on a trusted expert platform</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card info-card-dark" data-why="angel" style="display:none;">
+                        <h3 class="info-title">Why join Early Access?</h3>
+                        <ul class="info-list">
+                            <li>Get early access to a curated pipeline of vetted startups</li>
+                            <li>Review pitch decks and connect directly with promising founders</li>
+                            <li>Join a network of like-minded investors focused on execution-driven startups</li>
+                            <li>Be part of the Foundic ecosystem from day one</li>
                         </ul>
                     </div>
 
                     <div class="info-card">
                         <h3 class="info-title">What happens next?</h3>
                         <ol class="info-steps">
-                            <li><span>1</span>We review your application within 2 business days.</li>
+                            <li><span>1</span>Our team will review your application and reach out to you soon.</li>
                             <li><span>2</span>Our team schedules a short call to understand your goals.</li>
                             <li><span>3</span>You receive a tailored execution plan from Foundic.</li>
                         </ol>
@@ -128,7 +148,7 @@
                     <div class="info-card">
                         <h3 class="info-title">Questions?</h3>
                         <p class="info-text">Reach out to our team and we'll help you get started.</p>
-                        <a href="mailto:foundicnetwork@gmail.com" class="info-link">foundicnetwork@gmail.com</a>
+                        <a href="mailto:contact@foundicnetwork.com" class="info-link">contact@foundicnetwork.com</a>
                         <a href="tel:+919014420086" class="info-link">+91 90144 20086</a>
                     </div>
                 </aside>
@@ -210,6 +230,10 @@
                                         <option>Other</option>
                                     </select>
                                 </div>
+                                <div class="form-field" id="c-industry-other-wrap" style="display:none;">
+                                    <label class="form-label" for="c-industry-other">Specify Industry <span class="req">*</span></label>
+                                    <input type="text" id="c-industry-other" class="form-input" data-label="Other Industry">
+                                </div>
                                 <div class="form-field">
                                     <label class="form-label" for="c-stage">Company Stage <span class="req">*</span></label>
                                     <select id="c-stage" class="form-select" data-label="Company Stage" required>
@@ -263,6 +287,13 @@
                                         <label class="check-item"><input type="checkbox" value="Team Training"><span>Team Training</span></label>
                                     </div>
                                 </div>
+                                <div class="form-field span-2" id="c-training-type-wrap" style="display:none;">
+                                    <span class="form-label">Training Type <span class="req">*</span></span>
+                                    <div class="check-group" data-group data-label="Training Type">
+                                        <label class="check-item"><input type="checkbox" value="Sales Training"><span>Sales Training</span></label>
+                                        <label class="check-item"><input type="checkbox" value="Soft Skills Training"><span>Soft Skills Training</span></label>
+                                    </div>
+                                </div>
                                 <div class="form-field span-2">
                                     <label class="form-label" for="c-challenge">Describe your business challenge <span class="req">*</span></label>
                                     <textarea id="c-challenge" class="form-textarea" data-label="Business Challenge Description" required></textarea>
@@ -285,6 +316,13 @@
                                         <label class="check-item"><input type="checkbox" value="Sales Growth Execution"><span>Sales Growth Execution</span></label>
                                         <label class="check-item"><input type="checkbox" value="Revenue Growth Execution"><span>Revenue Growth Execution</span></label>
                                         <label class="check-item"><input type="checkbox" value="Team Training Execution"><span>Team Training Execution</span></label>
+                                    </div>
+                                </div>
+                                <div class="form-field span-2" id="c-exec-training-type-wrap" style="display:none;">
+                                    <span class="form-label">Training Type <span class="req">*</span></span>
+                                    <div class="check-group" data-group data-label="Training Type">
+                                        <label class="check-item"><input type="checkbox" value="Sales Training"><span>Sales Training</span></label>
+                                        <label class="check-item"><input type="checkbox" value="Soft Skills Training"><span>Soft Skills Training</span></label>
                                     </div>
                                 </div>
                                 <div class="form-field span-2">
@@ -320,7 +358,7 @@
                                 <input type="checkbox" id="consent-company" data-consent required>
                                 <label for="consent-company">I agree to be contacted by Foundic Network regarding
                                     platform updates, early access, business opportunities and future
-                                    communication</label>
+                                    communication and verification.</label>
                             </div>
                         </div>
                     </div>
@@ -377,20 +415,26 @@
                                         <option>Healthcare</option>
                                         <option>HealthTech</option>
                                         <option>Pharma</option>
-                                        <option>Sales & Distribution</option>
                                         <option>Other</option>
                                     </select>
                                 </div>
-                                <div class="form-field">
-                                    <label class="form-label" for="e-expertise">Area of Expertise <span class="req">*</span></label>
-                                    <input type="text" id="e-expertise" class="form-input" data-label="Area of Expertise" required>
+                                <div class="form-field" id="e-industry-other-wrap" style="display:none;">
+                                    <label class="form-label" for="e-industry-other">Specify Industry <span class="req">*</span></label>
+                                    <input type="text" id="e-industry-other" class="form-input" data-label="Other Industry">
                                 </div>
                                 <div class="form-field span-2">
-                                    <span class="form-label">Services <span class="req">*</span></span>
+                                    <span class="form-label">Area of Expertise <span class="req">*</span></span>
                                     <div class="check-group" data-group data-label="Service">
                                         <label class="check-item"><input type="checkbox" value="Sales Growth"><span>Sales Growth</span></label>
                                         <label class="check-item"><input type="checkbox" value="Revenue Growth"><span>Revenue Growth</span></label>
                                         <label class="check-item"><input type="checkbox" value="Team Training"><span>Team Training</span></label>
+                                    </div>
+                                </div>
+                                <div class="form-field span-2" id="e-training-type-wrap" style="display:none;">
+                                    <span class="form-label">Training Type <span class="req">*</span></span>
+                                    <div class="check-group" data-group data-label="Training Type">
+                                        <label class="check-item"><input type="checkbox" value="Sales Training"><span>Sales Training</span></label>
+                                        <label class="check-item"><input type="checkbox" value="Soft Skills Training"><span>Soft Skills Training</span></label>
                                     </div>
                                 </div>
                             </div>
@@ -402,8 +446,8 @@
                             <p class="step-desc">Show your experience and achievements.</p>
                             <div class="form-grid">
                                 <div class="form-field span-2">
-                                    <label class="form-label" for="e-resume">Resume</label>
-                                    <input type="file" id="e-resume" class="form-input upload-input" data-label="Resume">
+                                    <label class="form-label" for="e-resume">Resume <span class="req">*</span></label>
+                                    <input type="file" id="e-resume" class="form-input upload-input" data-label="Resume" required>
                                     <span class="field-hint">PDF or DOC, max 10MB</span>
                                 </div>
                                 <div class="form-field span-2">
@@ -429,16 +473,20 @@
                                 impact.</p>
                             <div class="form-grid">
                                 <div class="form-field">
-                                    <label class="form-label" for="e-rev-ind">Total Revenue Generated (Individual) <span class="req">*</span></label>
-                                    <input type="text" id="e-rev-ind" class="form-input" data-label="Total Revenue Generated (Individual)" required>
+                                    <label class="form-label" for="e-rev-ind">Total Revenue Generated (Team Lead) <span class="req">*</span></label>
+                                    <input type="text" id="e-rev-ind" class="form-input" data-label="Total Revenue Generated (Team Lead)" required>
                                 </div>
                                 <div class="form-field">
-                                    <label class="form-label" for="e-rev-team">Total Revenue Generated (Team) <span class="req">*</span></label>
-                                    <input type="text" id="e-rev-team" class="form-input" data-label="Total Revenue Generated (Team)" required>
+                                    <label class="form-label" for="e-rev-team">Total Revenue Generated (individual) <span class="req">*</span></label>
+                                    <input type="text" id="e-rev-team" class="form-input" data-label="Total Revenue Generated (individual)" required>
                                 </div>
                                 <div class="form-field">
-                                    <label class="form-label" for="e-rev-highest">Highest Revenue Generated <span class="req">*</span></label>
-                                    <input type="text" id="e-rev-highest" class="form-input" data-label="Highest Revenue Generated" required>
+                                    <label class="form-label" for="e-rev-highest-monthly">Highest Revenue Generated (Monthly) <span class="req">*</span></label>
+                                    <input type="text" id="e-rev-highest-monthly" class="form-input" data-label="Highest Revenue Generated (Monthly)" required>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="e-rev-highest-annual">Highest Revenue Generated (Annually) <span class="req">*</span></label>
+                                    <input type="text" id="e-rev-highest-annual" class="form-input" data-label="Highest Revenue Generated (Annually)" required>
                                 </div>
                                 <div class="form-field">
                                     <label class="form-label" for="e-deal">Largest Deal Closed <span class="req">*</span></label>
@@ -491,8 +539,8 @@
                             <p class="step-desc">Upload proof wherever available.</p>
                             <div class="form-grid">
                                 <div class="form-field span-2">
-                                    <label class="form-label" for="e-proof-reports">Performance Reports</label>
-                                    <input type="file" id="e-proof-reports" class="form-input upload-input" data-label="Performance Reports" multiple>
+                                    <label class="form-label" for="e-proof-reports">Performance Reports <span class="req">*</span></label>
+                                    <input type="file" id="e-proof-reports" class="form-input upload-input" data-label="Performance Reports" multiple required>
                                 </div>
                                 <div class="form-field span-2">
                                     <label class="form-label" for="e-proof-dash">Sales Dashboard Screenshots</label>
@@ -504,12 +552,12 @@
                                     <input type="file" id="e-proof-awards" class="form-input upload-input" data-label="Award Certificates" multiple>
                                 </div>
                                 <div class="form-field span-2">
-                                    <label class="form-label" for="e-proof-reco">Recommendation Letters</label>
-                                    <input type="file" id="e-proof-reco" class="form-input upload-input" data-label="Recommendation Letters" multiple>
+                                    <label class="form-label" for="e-proof-reco">Recommendation Letters <span class="req">*</span></label>
+                                    <input type="file" id="e-proof-reco" class="form-input upload-input" data-label="Recommendation Letters" multiple required>
                                 </div>
                                 <div class="form-field span-2">
-                                    <label class="form-label" for="e-proof-emails">Client Appreciation/Letters</label>
-                                    <input type="file" id="e-proof-emails" class="form-input upload-input" data-label="Client Appreciation/Letters" multiple>
+                                    <label class="form-label" for="e-proof-emails">Client Appreciation/Letters <span class="req">*</span></label>
+                                    <input type="file" id="e-proof-emails" class="form-input upload-input" data-label="Client Appreciation/Letters" multiple required>
                                 </div>
                             </div>
                         </div>
@@ -532,7 +580,7 @@
                                     <div class="radio-group" data-group>
                                         <label class="radio-item"><input type="radio" name="e-engagement" value="Part-Time" data-label="Preferred Engagement"><span>Part-Time</span></label>
                                         <label class="radio-item"><input type="radio" name="e-engagement" value="Full-Time" data-label="Preferred Engagement"><span>Full-Time</span></label>
-                                        <label class="radio-item"><input type="radio" name="e-engagement" value="Project-Based" data-label="Preferred Engagement"><span>Project-Based</span></label>
+                                        <label class="radio-item"><input type="radio" name="e-engagement" value="Project-Based (Commission Based)" data-label="Preferred Engagement"><span>Project-Based (Commission Based)</span></label>
                                     </div>
                                 </div>
                                 <div class="form-field span-2">
@@ -564,7 +612,7 @@
                                 <input type="checkbox" id="consent-expert" data-consent required>
                                 <label for="consent-expert">I agree to be contacted by Foundic Network regarding
                                     platform updates, early access, business opportunities and future
-                                    communication</label>
+                                    communication and verification.</label>
                             </div>
                         </div>
                     </div>
@@ -639,8 +687,7 @@
                                     <div class="check-group" data-group data-label="What to receive">
                                         <label class="check-item"><input type="checkbox" value="Pitch Deck"><span>Pitch Deck</span></label>
                                         <label class="check-item"><input type="checkbox" value="Product Demo"><span>Product Demo</span></label>
-                                        <label class="check-item"><input type="checkbox" value="Product Updates"><span>Product Updates</span></label>
-                                        <label class="check-item"><input type="checkbox" value="Investment Discussion"><span>Investment Discussion</span></label>
+                                        <label class="check-item"><input type="checkbox" value="Company Profile"><span>Company Profile</span></label>
                                     </div>
                                 </div>
                                 <div class="form-field span-2">
@@ -672,7 +719,7 @@
                                 <input type="checkbox" id="consent-angel" data-consent required>
                                 <label for="consent-angel">I agree to be contacted by Foundic Network regarding
                                     platform updates, early access, business opportunities and future
-                                    communication</label>
+                                    communication and verification.</label>
                             </div>
                         </div>
                     </div>

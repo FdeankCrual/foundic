@@ -149,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
             roleCards.forEach(c => c.classList.toggle('active', c.dataset.role === role));
             const roleInput = document.getElementById('role');
             if (roleInput) roleInput.value = role;
+            document.querySelectorAll('[data-why]').forEach(el => {
+                el.style.display = el.dataset.why === role ? 'block' : 'none';
+            });
             goToStep(role, 0);
         }
 
@@ -171,17 +174,74 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Industry "Other" toggle
+        const cIndustry = document.getElementById('c-industry');
+        const cIndustryOtherWrap = document.getElementById('c-industry-other-wrap');
+        const cIndustryOther = document.getElementById('c-industry-other');
+        if (cIndustry && cIndustryOtherWrap && cIndustryOther) {
+            cIndustry.addEventListener('change', () => {
+                const isOther = cIndustry.value === 'Other';
+                cIndustryOtherWrap.style.display = isOther ? 'block' : 'none';
+                cIndustryOther.required = isOther;
+                if (!isOther) cIndustryOther.value = '';
+            });
+        }
+
+        const eIndustry = document.getElementById('e-industry');
+        const eIndustryOtherWrap = document.getElementById('e-industry-other-wrap');
+        const eIndustryOther = document.getElementById('e-industry-other');
+        if (eIndustry && eIndustryOtherWrap && eIndustryOther) {
+            eIndustry.addEventListener('change', () => {
+                const isOther = eIndustry.value === 'Other';
+                eIndustryOtherWrap.style.display = isOther ? 'block' : 'none';
+                eIndustryOther.required = isOther;
+                if (!isOther) eIndustryOther.value = '';
+            });
+        }
+
+        // Team Training sub-form toggles
+        function setupTrainingToggle(checkboxValue, wrapId) {
+            const checkbox = document.querySelector(`input[type="checkbox"][value="${checkboxValue}"]`);
+            const wrap = document.getElementById(wrapId);
+            if (checkbox && wrap) {
+                checkbox.addEventListener('change', () => {
+                    wrap.style.display = checkbox.checked ? 'block' : 'none';
+                    if (!checkbox.checked) {
+                        wrap.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                            cb.checked = false;
+                            cb.closest('.check-item').classList.remove('active');
+                        });
+                    }
+                });
+            }
+        }
+        setupTrainingToggle('Team Training', 'c-training-type-wrap');
+        setupTrainingToggle('Team Training Execution', 'c-exec-training-type-wrap');
+
+        const eTrainingWrap = document.getElementById('e-training-type-wrap');
+        if (eTrainingWrap) {
+            const expertJourney = document.getElementById('expert-journey');
+            if (expertJourney) {
+                const eTeamCb = expertJourney.querySelector('input[type="checkbox"][value="Team Training"]');
+                if (eTeamCb) {
+                    eTeamCb.addEventListener('change', () => {
+                        eTrainingWrap.style.display = eTeamCb.checked ? 'block' : 'none';
+                        if (!eTeamCb.checked) {
+                            eTrainingWrap.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                                cb.checked = false;
+                                cb.closest('.check-item').classList.remove('active');
+                            });
+                        }
+                    });
+                }
+            }
+        }
+
         function setInvalid(el, bad) {
             el.classList.toggle('invalid', bad);
         }
 
         function validateStep(step) {
-            const TEST_MODE = false; // Skip required-field validation for testing. Set to false to re-enable.
-            if (TEST_MODE) {
-                errorEl.classList.remove('show');
-                return true;
-            }
-
             let valid = true;
             const emailRe = /^\S+@\S+\.\S+$/;
 
