@@ -73,6 +73,89 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.animate-up');
     animatedElements.forEach(el => observer.observe(el));
 
+    // Scroll Spy - highlight active nav link
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+    const sections = document.querySelectorAll('section[id]');
+    const sectionIds = Array.from(sections).map(s => s.id);
+
+    function updateActiveLink() {
+        let current = '';
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom > 150) {
+                current = section.id;
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('nav-link-active', 'mobile-link-active');
+            const href = link.getAttribute('href');
+            if (href && href.includes('#') && href.split('#')[1] === current) {
+                if (link.classList.contains('nav-link')) {
+                    link.classList.add('nav-link-active');
+                } else {
+                    link.classList.add('mobile-link-active');
+                }
+            }
+        });
+    }
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
+
+    // Back to Top Button
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Animated Stat Counters
+    const statsBand = document.querySelector('.stats-band');
+    if (statsBand) {
+        const statNumbers = statsBand.querySelectorAll('.stat-number');
+        let statsAnimated = false;
+
+        function animateCounters() {
+            statNumbers.forEach(el => {
+                const target = parseInt(el.getAttribute('data-target'), 10);
+                const duration = 2000;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = Math.round(target * eased);
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = target;
+                    }
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        statsObserver.observe(statsBand);
+    }
+
     // Waitlist multi-step form
     const waitlistForm = document.getElementById('waitlist-form');
     if (waitlistForm) {

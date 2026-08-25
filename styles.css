@@ -2631,3 +2631,133 @@ button {
     background-color: var(--red-100);
     color: var(--red-500);
 }
+
+/* ===================== Stats Band ===================== */
+.stats-band {
+    background-color: var(--dark-navy);
+    position: relative;
+    overflow: hidden;
+    padding: 3.5rem 0;
+}
+
+.stats-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-image: radial-gradient(var(--teal) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.stats-band .container {
+    position: relative;
+    z-index: 10;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1;
+    display: inline;
+}
+
+@media (min-width: 768px) {
+    .stat-number {
+        font-size: 3.5rem;
+    }
+}
+
+.stat-suffix {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1;
+    display: inline;
+}
+
+@media (min-width: 768px) {
+    .stat-suffix {
+        font-size: 3.5rem;
+    }
+}
+
+.stat-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===================== Back to Top ===================== */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--dark-navy);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(27, 36, 45, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background-color: var(--teal);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(92, 153, 164, 0.4);
+}
+
+#back-to-top svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    #back-to-top {
+        bottom: 2.5rem;
+        left: 2.5rem;
+    }
+}
