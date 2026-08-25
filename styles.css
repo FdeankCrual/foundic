@@ -2701,15 +2701,15 @@ button {
 }
 
 .stat-suffix {
-    font-size: inherit;
-    font-weight: inherit;
-    color: inherit;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--teal);
     line-height: 1;
 }
 
 @media (min-width: 768px) {
     .stat-suffix {
-        font-size: inherit;
+        font-size: 3.5rem;
     }
 }
 
