@@ -156,6 +156,41 @@ document.addEventListener('DOMContentLoaded', () => {
         statsObserver.observe(statsBand);
     }
 
+    // Scroll Progress Bar
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            scrollProgress.style.width = progress + '%';
+        }, { passive: true });
+    }
+
+    // Parallax Hero Background
+    const heroBg = document.querySelector('.hero-bg-pattern');
+    if (heroBg) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY < window.innerHeight) {
+                heroBg.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+            }
+        }, { passive: true });
+    }
+
+    // Staggered List Reveal
+    const revealLists = document.querySelectorAll('.service-list.reveal');
+    if (revealLists.length) {
+        const listObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    listObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        revealLists.forEach(list => listObserver.observe(list));
+    }
+
     // Waitlist multi-step form
     const waitlistForm = document.getElementById('waitlist-form');
     if (waitlistForm) {
