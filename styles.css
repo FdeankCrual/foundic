@@ -2680,12 +2680,18 @@ button {
     gap: 0.25rem;
 }
 
+.stat-value {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    line-height: 1;
+}
+
 .stat-number {
     font-size: 3rem;
     font-weight: 800;
     color: var(--teal);
     line-height: 1;
-    display: inline;
 }
 
 @media (min-width: 768px) {
@@ -2695,16 +2701,15 @@ button {
 }
 
 .stat-suffix {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--teal);
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
     line-height: 1;
-    display: inline;
 }
 
 @media (min-width: 768px) {
     .stat-suffix {
-        font-size: 3.5rem;
+        font-size: inherit;
     }
 }
 
